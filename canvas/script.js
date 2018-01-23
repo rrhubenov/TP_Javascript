@@ -4,18 +4,11 @@ ctx.canvas.width  = window.innerWidth - 50;
 ctx.canvas.height = window.innerHeight - 50;
 var raf;
 document.body.style.backgroundColor = "white";
-var ham = new Image();
-DrawHammer = function(){
-  ham.src = 'https://vignette.wikia.nocookie.net/dofus/images/d/df/Handyman_Hammer.png/revision/latest?cb=20090816233427';  
+var gun = new Image();
+DrawWeapon = function(){
+  gun.src = 'https://t1.rbxcdn.com/23678b437e11f8c47fc3b88681c13bc4';  
 }
 
-/*function getMouse (e) {
-  var rect = canvas.getBoundingClientRect()
-  return {
-    x: e.clientX - rect.left,
-    y: e.clientY - rect.top
-  }
-}*/
 
 var ball = {
   radius: 35,
@@ -33,22 +26,22 @@ var ball = {
   },
 };
 
-var hammer = {
+var Weapon = {
   x: 200,
-  y: 200,
+  y: 450,
   width: 150,
   height: 150,
   xv: 0,
   yv: 0,
   draw: function() {
-   ctx.drawImage(ham, this.x, this.y, this.width, this.height); 
+   ctx.drawImage(gun, this.x, this.y, this.width, this.height); 
   }
 };
 
 function draw() {
   ctx.clearRect(0,0, canvas.width, canvas.height);
   ball.draw();
-  hammer.draw();
+  Weapon.draw();
   ball.x += ball.vx;
   ball.y += ball.vy;
   raf = window.requestAnimationFrame(draw);
@@ -70,8 +63,7 @@ canvas.addEventListener('mouseout', function(e) {
 });
 
 canvas.addEventListener('mousemove', function(e){
-  hammer.x = e.clientX - 30
-  hammer.y = e.clientY - 140
+  Weapon.x = e.clientX - 30
 });
 
 ball.draw();
